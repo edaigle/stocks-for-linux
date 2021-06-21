@@ -1,9 +1,4 @@
-#include "sfl_finnhub_access.h"
-
-struct write_result {
-  char *data;
-  int pos;
-};
+#include "sfl-finnhub-access.h"
 
 static size_t curl_write_cb(void *data, size_t size, size_t nmemb, void *userp) {
   struct write_result *res = (struct write_result*) userp;

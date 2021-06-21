@@ -14,6 +14,11 @@
 
 #define RESPONSE_BUFFER_SIZE 18300 // Financials file is exactly 18275 bytes, TODO: use realloc
 
+struct write_result {
+  char *data;
+  int pos;
+};
+
 typedef struct {
   double ftw_high;
   char* ftw_high_date;
@@ -38,4 +43,9 @@ typedef struct {
   double open_price;
   double timestamp;
 } FinnhubQuoteData;
-  
+
+static size_t curl_write_cb(void *data, size_t size, size_t nmemb, void *userp);
+
+FinnhubFinancialsData* finnhub_get_symbol_financials_data (char *ticker);
+FinnhubProfileData* finnhub_get_symbol_profile_data (char *ticker);
+FinnhubQuoteData* finnhub_get_symbol_quote_data (char *ticker);
