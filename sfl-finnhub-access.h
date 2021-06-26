@@ -5,7 +5,7 @@
 #include <cjson/cJSON.h>
 #include <curl/curl.h>
 
-#define API_KEY_ENV "LFS_API_KEY"
+#define API_KEY_ENV "SFL_API_KEY"
 
 #define API_URL_CANDLE "https://finnhub.io/api/v1/stock/candle?symbol=%s&resolution=1&from=%s&to=%s&token=%s"
 #define API_URL_FINANCIALS "https://finnhub.io/api/v1/stock/metric?symbol=%s&metric=all&token=%s"
