@@ -10,22 +10,37 @@
         <property name="orientation">vertical</property>
         <property name="spacing">12</property>
         <child>
-          <object class="GtkBox">
+          <object class="GtkGrid">
+	    <property name="row-spacing">6</property>
 	    <property name="hexpand">True</property>
-	    <property name="orientation">horizontal</property>
             <child>
               <object class="GtkLabel" id="name_label">
                 <property name="halign">start</property>
 		<property name="hexpand">True</property>
-		<attributes>
-		  <attribute name="weight" value="bold"/>
-		</attributes>
+		<layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+		</layout>
               </object>
             </child>
-            <child>
+	    <child>
+              <object class="GtkLabel" id="industry_label">
+                <property name="halign">start</property>
+		<property name="hexpand">True</property>
+		<layout>
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+		</layout>
+              </object>
+            </child>
+	    <child>
               <object class="GtkLabel" id="website_label">
                 <property name="halign">end</property>
 		<property name="hexpand">True</property>
+		<layout>
+                  <property name="column">1</property>
+                  <property name="row">0</property>
+		</layout>
               </object>
             </child>
           </object>

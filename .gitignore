@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# GResources
+resources.c
+
+# Compiled binary
+main
+

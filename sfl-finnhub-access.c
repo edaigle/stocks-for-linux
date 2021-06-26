@@ -57,7 +57,7 @@ FinnhubFinancialsData* finnhub_get_symbol_financials_data (char *ticker)
   financials_data->ftw_low = cJSON_GetObjectItemCaseSensitive(metrics, "52WeekLow")->valuedouble;
   financials_data->ftw_low_date = strdup (cJSON_GetObjectItemCaseSensitive(metrics, "52WeekLowDate")->valuestring);
   financials_data->dividend_yield = cJSON_GetObjectItemCaseSensitive(metrics, "currentDividendYieldTTM")->valuedouble;
-  financials_data->price_earnings = cJSON_GetObjectItemCaseSensitive(metrics, "peBasicExclExtraTTM")->valuedouble;
+  financials_data->price_earnings = cJSON_GetObjectItemCaseSensitive(metrics, "peExclExtraTTM")->valuedouble;
 
   // Cleanup and return
   
