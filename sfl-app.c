@@ -14,6 +14,12 @@ sfl_app_init (SFLApp *app)
 }
 
 static void
+sfl_app_finalize (GObject *object)
+{
+  G_OBJECT_CLASS (sfl_app_parent_class)->finalize (object);
+}
+
+static void
 sfl_app_activate (GApplication *app)
 {
   SFLAppWindow *win;
@@ -49,6 +55,8 @@ sfl_app_class_init (SFLAppClass *class)
 {
   G_APPLICATION_CLASS (class)->activate = sfl_app_activate;
   G_APPLICATION_CLASS (class)->open = sfl_app_open;
+
+  G_OBJECT_CLASS (class)->finalize = sfl_app_finalize;
 }
 
 SFLApp *
