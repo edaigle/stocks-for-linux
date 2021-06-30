@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/home/ericdaigle/Projects/stocks-for-linux">
-    <file preprocess="xml-stripblanks">builder.ui</file>
+    <file preprocess="xml-stripblanks">sfl-app-window.ui</file>
+    <file preprocess="xml-stripblanks">sfl-stock-view.ui</file>
   </gresource>
 </gresources>

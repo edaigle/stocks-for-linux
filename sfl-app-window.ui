@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="SFLAppWindow" parent="GtkApplicationWindow">
+    <property name="title">Stocks</property>
+    <child>
+      <object class="GtkBox" id="content_box">
+	<property name="orientation">horizontal</property>
+	<child>
+	  <object class="GtkStackSidebar" id="sidebar">
+	    <property name="stack">stack</property>
+	  </object>
+	</child>
+	<child>
+	  <object class="GtkStack" id="stack"/>
+	</child>
+      </object>
+    </child>
+  </template>
+</interface>
