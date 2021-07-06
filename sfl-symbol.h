@@ -30,6 +30,6 @@ int sfl_symbol_update_financials (SFLSymbol *self);
 int sfl_symbol_update_profile (SFLSymbol *self);
 int sfl_symbol_update_quote (SFLSymbol *self);
 
-SFLSymbol* sfl_symbol_new (char* ticker);
+SFLSymbol* sfl_symbol_new (const char* ticker);
 void sfl_symbol_destroy (SFLSymbol *self);
   

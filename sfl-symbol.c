@@ -81,7 +81,7 @@ int sfl_symbol_update_quote (SFLSymbol *self)
  * all fields. Returns NULL if any fields fail to initialize.
  * TODO: Check symbol is valid!
  */
-SFLSymbol* sfl_symbol_new (char *ticker)
+SFLSymbol* sfl_symbol_new (const char *ticker)
 {
   SFLSymbol *symbol = malloc (sizeof (SFLSymbol));
   symbol->ticker = strdup (ticker);

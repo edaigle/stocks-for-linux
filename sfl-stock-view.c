@@ -100,7 +100,7 @@ sfl_stock_view_new (void)
   return g_object_new (SFL_TYPE_STOCK_VIEW, NULL);
 }
 
-void sfl_stock_view_set_symbol (SFLStockView *view, gchar *ticker)
+void sfl_stock_view_set_symbol (SFLStockView *view, const gchar *ticker)
 {
   // TODO: fail if invalid ticker
 
