@@ -91,7 +91,7 @@ SFLSymbol* sfl_symbol_new (char *ticker)
       || !sfl_symbol_update_profile (symbol)) {
     sfl_symbol_destroy (symbol);
     symbol = NULL;
-    }
+  }
 
   return symbol;
 }

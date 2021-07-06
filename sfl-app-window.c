@@ -7,16 +7,34 @@
 struct _SFLAppWindow
 {
   GtkApplicationWindow parent;
-  
+
+  GtkWidget *refresh_button;
   GtkWidget *stack;
 };
 
 G_DEFINE_TYPE (SFLAppWindow, sfl_app_window, GTK_TYPE_APPLICATION_WINDOW)
 
 static void
+refresh_button_cb (GtkWidget *widget,
+		   gpointer data)
+{
+  SFLAppWindow *win;
+  SFLStockView *view;
+
+  win = SFL_APP_WINDOW (data);
+  view = SFL_STOCK_VIEW (gtk_stack_get_visible_child ( GTK_STACK (win->stack)));
+
+  if (view)
+    sfl_stock_view_refresh (view);
+}
+
+static void
 sfl_app_window_init (SFLAppWindow *win)
 {
   gtk_widget_init_template (GTK_WIDGET (win));
+
+  g_signal_connect (win->refresh_button, "clicked",
+		    G_CALLBACK (refresh_button_cb), win);
 }
 
 
@@ -31,6 +49,7 @@ sfl_app_window_class_init (SFLAppWindowClass *class)
 {
   gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (class), SFL_WINDOW_UI_PATH);
 
+  gtk_widget_class_bind_template_child (GTK_WIDGET_CLASS (class), SFLAppWindow, refresh_button);
   gtk_widget_class_bind_template_child (GTK_WIDGET_CLASS (class), SFLAppWindow, stack);
   
   G_OBJECT_CLASS (class)->finalize = sfl_app_window_finalize;

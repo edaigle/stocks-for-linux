@@ -2,6 +2,28 @@
 <interface>
   <template class="SFLAppWindow" parent="GtkApplicationWindow">
     <property name="title">Stocks</property>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header">
+	<child type="start">
+	  <object class="GtkButton" id="add_button">
+	    <child>
+	      <object class="GtkImage">
+		<property name="icon_name">list-add-symbolic</property>
+	      </object>
+	    </child>
+	  </object>
+	</child>
+	<child type="end">
+	  <object class="GtkButton" id="refresh_button">
+	    <child>
+	      <object class="GtkImage">
+		<property name="icon_name">view-refresh-symbolic</property>
+	      </object>
+	    </child>
+	  </object>
+	</child>
+      </object>
+    </child>
     <child>
       <object class="GtkBox" id="content_box">
 	<property name="orientation">horizontal</property>

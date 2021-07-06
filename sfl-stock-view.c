@@ -103,7 +103,24 @@ sfl_stock_view_new (void)
 void sfl_stock_view_set_symbol (SFLStockView *view, gchar *ticker)
 {
   // TODO: fail if invalid ticker
+
+  if (view->symbol != NULL) {
+    sfl_symbol_destroy (view->symbol);
+    view->symbol = NULL;
+  }
   view->symbol = sfl_symbol_new (ticker);
+}
+
+void
+sfl_stock_view_refresh (SFLStockView *view)
+{
+  gchar *ticker;
+
+  ticker = g_strdup (view->symbol->ticker);
+  sfl_stock_view_set_symbol (view, ticker);
+  sfl_stock_view_update (view);
+
+  g_free (ticker);
 }
 
 void
@@ -162,6 +179,7 @@ sfl_stock_view_update (SFLStockView *view)
   gtk_label_set_markup ( GTK_LABEL (view->ftw_label), view->ftw_string);
   // TODO: use FTWdate, timestamp
 
-  
 }
+
+
   
