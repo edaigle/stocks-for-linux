@@ -47,11 +47,12 @@ add_stock_dialog_cb (GtkDialog *dialog,
   win = SFL_APP_WINDOW (data);
     
   new_view = sfl_stock_view_new ();
-  sfl_stock_view_set_symbol (new_view, ticker);
-  sfl_stock_view_update (new_view);
-  
-  gtk_stack_add_titled (GTK_STACK (win->stack), GTK_WIDGET (new_view), ticker, ticker);
-  gtk_stack_set_visible_child_name (GTK_STACK (win->stack), ticker);
+  if (sfl_stock_view_set_symbol (new_view, ticker)) {
+    sfl_stock_view_update (new_view);
+
+    gtk_stack_add_titled (GTK_STACK (win->stack), GTK_WIDGET (new_view), ticker, ticker);
+    gtk_stack_set_visible_child_name (GTK_STACK (win->stack), ticker);
+  } 
 
   gtk_window_destroy (GTK_WINDOW (dialog));
 }

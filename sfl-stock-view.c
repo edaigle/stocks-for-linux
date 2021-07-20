@@ -100,15 +100,16 @@ sfl_stock_view_new (void)
   return g_object_new (SFL_TYPE_STOCK_VIEW, NULL);
 }
 
-void sfl_stock_view_set_symbol (SFLStockView *view, const gchar *ticker)
+int sfl_stock_view_set_symbol (SFLStockView *view, const gchar *ticker)
 {
-  // TODO: fail if invalid ticker
 
   if (view->symbol != NULL) {
     sfl_symbol_destroy (view->symbol);
     view->symbol = NULL;
   }
   view->symbol = sfl_symbol_new (ticker);
+
+  return (view->symbol != NULL);
 }
 
 void
@@ -126,7 +127,6 @@ sfl_stock_view_refresh (SFLStockView *view)
 void
 sfl_stock_view_update (SFLStockView *view)
 {
-  // TODO: fail if no symbol set
 
   view->name_string = g_markup_printf_escaped (SFL_STOCK_VIEW_NAME_MARKUP, 14, view->symbol->name);
   gtk_label_set_markup ( GTK_LABEL (view->name_label), view->name_string);

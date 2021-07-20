@@ -28,7 +28,7 @@ G_DECLARE_FINAL_TYPE (SFLStockView, sfl_stock_view, SFL, STOCK_VIEW, GtkBox)
 
 
 SFLStockView       *sfl_stock_view_new          (void);
-void                sfl_stock_view_set_symbol (SFLStockView *view, const gchar *ticker);
+int                sfl_stock_view_set_symbol (SFLStockView *view, const gchar *ticker);
 void                sfl_stock_view_refresh (SFLStockView *view);
 void                sfl_stock_view_update (SFLStockView *view);
 

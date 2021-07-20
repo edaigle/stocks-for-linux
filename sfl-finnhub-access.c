@@ -20,6 +20,11 @@ FinnhubFinancialsData* finnhub_get_symbol_financials_data (char *ticker)
   char *api_key = getenv(API_KEY_ENV);
   char url[80];
 
+  if (!api_key) {
+    fprintf (stderr, "CRITICAL: Error fetching API key, is SFL_API_KEY set?\n");
+    return NULL;
+  }
+
   char *buf = malloc (RESPONSE_BUFFER_SIZE);
   struct write_result api_response = {
     .data = buf,
@@ -78,6 +83,11 @@ FinnhubProfileData* finnhub_get_symbol_profile_data (char *ticker)
   char *api_key = getenv(API_KEY_ENV);
   char url[80];
 
+  if (!api_key) {
+    fprintf (stderr, "CRITICAL: Error fetching API key, is SFL_API_KEY set?\n");
+    return NULL;
+  }
+
   char *buf = malloc (1024); //TODO: Fix magic #
   struct write_result api_response = {
     .data = buf,
@@ -131,6 +141,11 @@ FinnhubQuoteData* finnhub_get_symbol_quote_data (char *ticker)
 
   char *api_key = getenv(API_KEY_ENV);
   char url[80];
+
+  if (!api_key) {
+    fprintf (stderr, "CRITICAL: Error fetching API key, is SFL_API_KEY set?\n");
+    return NULL;
+  }
 
   char *buf = malloc (1024); //TODO: Fix magic #
   struct write_result api_response = {
